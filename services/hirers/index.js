@@ -16,11 +16,7 @@ const { findById } = require("../schema/schema");
 const algoliasearch = require("algoliasearch");
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-const client = algoliasearch(
-  process.env.ALGOLIA_ID,
-  process.env.ALGOLIA_SECRET
-);
-const index = client.initIndex(process.env.ALGOLIA_INDEX);
+
 
 const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
