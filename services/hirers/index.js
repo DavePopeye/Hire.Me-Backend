@@ -13,10 +13,7 @@ const path = require("path");
 const upload = multer({});
 const sgMail = require("@sendgrid/mail");
 const { findById } = require("../schema/schema");
-const algoliasearch = require("algoliasearch");
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-
-
 
 const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
@@ -420,7 +417,7 @@ hirersRouter.post("/signup", async (req, res, next) => {
     delete req.body.password;
     delete req.body.email;
 
-    await index.saveObject({ ...req.body, objectID: newUser._id });
+    // await index.saveObject({ ...req.body, objectID: newUser._id });
     res.status(201).send({ _id: newUser._id });
   } catch (error) {
     console.log(error);
